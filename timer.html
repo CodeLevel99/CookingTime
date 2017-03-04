@@ -9,7 +9,10 @@ p {
 
 form {
     text-align: center;
-    
+}
+
+#buttons {
+    text-align: center;
 }
 
 </style>
@@ -18,9 +21,9 @@ form {
 <body>
 
     <div id="body container">
-        <div>
-            <p id="time"></p>
-            <p id="console">Things are happening?</p>
+        <div id="text">
+            <p id="time">00d 00h 00m 00s</p>
+            <p id="message"></p>
         </div>
         
         <div id="time input">
@@ -32,8 +35,10 @@ form {
             </form>
         </div>
         <div id="buttons">
-            <button>Cancel</button>
-            <button onClick=startTimer()>Start!</button>
+            <br>
+            <button class="buttonss" onClick=clearTimer()>Cancel</button>
+            <button class="buttonss" onClick=startTimer()>Start!</button>
+            <br>
         </div>
     </div>
 
@@ -41,9 +46,10 @@ form {
 <script type="text/javascript">
 
     var timeElapsed = 0; 
+    var countdown;
 
     function startTimer() {
-    var countdown = setInterval(function() {
+        countdown = setInterval(function() {
 
         var hours_input = document.getElementById("hours").value;
         var minutes_input = document.getElementById("minutes").value;
@@ -64,8 +70,13 @@ form {
 
         if (distance < 0) {
             clearInterval(countdown);
+            alert("Countdown finished.");
         }
     }, 1000);
+
+    function clearTimer() {
+        clearInterval(countdown);
+    }
 }
 </script>
 
