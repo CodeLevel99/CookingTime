@@ -7,9 +7,10 @@
 
 /* Background image edits */
 body {
-        background-image: url("1.jpg");
+        background-image: url("texture.jpg");
 		background-size: cover;
-		align-self: center;
+		background-attachment: fixed;
+    	background-position: center -70%; 
 } 
 
 img.center {
