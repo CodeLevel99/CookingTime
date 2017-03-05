@@ -1,17 +1,10 @@
-body {
-    background-color: #FFC773;
+#time {
+	text-align: center;
+
+	/* Put a font and font size here */
 }
-p {
-  text-align: center;
-  font-size: 50px;
-}
-form {
-    text-align: center;
-    
-}
-#buttons {
-    text-align: center;
-}
+
+/* The following code is for animation */
 @keyframes rotate
 {
 		100% {transform: rotate(360deg);}
@@ -52,3 +45,4 @@ form {
     position: relative;
     top: 80px;
 }
+/* ------------------------------------------------------- */
