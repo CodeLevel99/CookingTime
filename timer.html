@@ -63,8 +63,7 @@ form {
 
     <div id="body container">
         <div>
-            <p id="time"></p>
-            <p id="console">Things are happening?</p>
+            <p id="time">00h 00h 00s</p>
         </div>
         
         <div id="time input">
@@ -76,8 +75,8 @@ form {
             </form>
         </div>
         <div id="buttons">
-            <button>Cancel</button>
-            <button onClick=startTimer()>Start!</button>
+            <button onClick=clearTimer() id="stopButton">Stop</button>
+            <button onClick=startTimer() id="startButton">Start!</button>
         </div>
 
     <div id="clock-container">
@@ -92,9 +91,29 @@ form {
 
 
 <script type="text/javascript">
+
+    window.addEventListener("beforeunload", function(e)  {
+        var confirmationMessage = "Are you sure you want to kill your timer?";
+
+        (e || window.event).returnValue = confirmationMessage;
+        return confirmationMessage;
+    });
+
+
+    var countdown; 
+
     var timeElapsed = 0; 
     function startTimer() {
         countdown = setInterval(function() {
+
+            document.getElementById("second-hand").style.animationPlayState = "running"; 
+
+            //prevent button timer to changed while running
+            document.getElementById("hours").disabled = true;
+            document.getElementById("minutes").disabled = true;
+            //prevent start button from being clicked again
+            document.getElementById("startButton").disabled = true; 
+
 
             var hours_input = document.getElementById("hours").value;
             var minutes_input = document.getElementById("minutes").value;
@@ -105,12 +124,11 @@ form {
 
             var distance = time - timeElapsed;
 
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("time").innerHTML = days + "d " + hours + "h "
+            document.getElementById("time").innerHTML = hours + "h "
             + minutes + "m " + seconds + "s ";
 
             if (distance < 0) {
@@ -121,6 +139,13 @@ form {
     
     }
     function clearTimer() {
+        console.log("stopped");
+        document.getElementById("second-hand").style.animationPlayState = "paused"; 
+        //re-enable the input
+        document.getElementById("hours").disabled = false;
+        document.getElementById("minutes").disabled = false;
+        //re-enable start button
+        document.getElementById("startButton").disabled = false; 
         clearInterval(countdown);
     }
 
