@@ -5,6 +5,15 @@
 	font-size: 22px;
 }
 
+body {
+        background-image: url("nebula.jpg");
+} 
+.resize-fill-and-clip{ 
+  /* Resize to fill and retain aspect ratio.
+     Will cause clipping if aspect ratio of box is different from image. */ 
+  background-size: cover;
+}
+
 /* The following code is for animation */
 @keyframes rotate
 {
