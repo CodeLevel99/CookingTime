@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 div {
     body{
     background-color: #FFC773;
@@ -13,13 +14,26 @@ form {
 #buttons {
     text-align: center;
 }
+=======
+#time {
+    text-align: center;
+    /* Put a font and font size here*/
+
+}
+
+/* The following code is for the animation of the clock */
+>>>>>>> 0f79e94bbead15fba7f0705fa5d99478db3f820b
 @keyframes rotate
 {
 		100% {transform: rotate(360deg);}
 }
 #second-hand
 {
+<<<<<<< HEAD
 	background-color: #E7734C;
+=======
+	background-color: white;
+>>>>>>> 0f79e94bbead15fba7f0705fa5d99478db3f820b
 	height: 200px;
 	width: 3px;
 	position: relative;
@@ -33,7 +47,11 @@ form {
 }
 #second-hand-top-part
 {
+<<<<<<< HEAD
 	background-color: #FFC773;
+=======
+	background-color: black;
+>>>>>>> 0f79e94bbead15fba7f0705fa5d99478db3f820b
 	position: relative;
 	margin: auto;
 	height: 100px;
@@ -45,11 +63,20 @@ form {
 	margin: auto;
 	height: 220px;
 	width: 220px;
+<<<<<<< HEAD
 	border: 5px solid  #D56F1D;
+=======
+	border: 5px solid black;
+>>>>>>> 0f79e94bbead15fba7f0705fa5d99478db3f820b
 	border-radius: 100%;
 }
 #clock-container
 {
     position: relative;
     top: 80px;
+<<<<<<< HEAD
 }
+=======
+}
+/* ------------------------------------------------------- */
+>>>>>>> 0f79e94bbead15fba7f0705fa5d99478db3f820b
