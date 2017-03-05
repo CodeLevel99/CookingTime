@@ -9,47 +9,11 @@
 body {
         background-image: url("1.jpg");
 		background-size: cover;
+		align-self: center;
 } 
 
-/* The following code is for animation */
-@keyframes rotate
-{
-		100% {transform: rotate(360deg);}
-}
-#second-hand
-{
-	background-color: white;
-	height: 200px;
-	width: 3px;
-	position: relative;
-	margin: auto;
-	top: 5px;
-	animation-name: rotate;
-	animation-duration: 60s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-	animation-play-state: paused;
-}
-#second-hand-top-part
-{
-	background-color: #E7734C;
-	position: relative;
-	margin: auto;
-	height: 100px;
-	width: 3px;
-}
-#clock
-{
-	position: relative;
-	margin: auto;
-	height: 220px;
-	width: 220px;
-	border: 5px solid  #D56F1D;
-	border-radius: 100%;
-}
-#clock-container
-{
-    margin: auto;
-    width: 50%;
+img.center {
+    display: block;
+    margin: 0 auto;
 }
 /* ------------------------------------------------------- */
