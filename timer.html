@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+p {
+  text-align: center;
+  font-size: 50px;
+}
+form {
+    text-align: center;
+    
+}
+#buttons {
+    text-align: center;
+}
+@keyframes rotate
+{
+		100% {transform: rotate(360deg);}
+}
+#second-hand
+{
+	background-color: white;
+	height: 200px;
+	width: 3px;
+	position: relative;
+	margin: auto;
+	top: 5px;
+	animation-name: rotate;
+	animation-duration: 60s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-play-state: paused;
+}
+#second-hand-top-part
+{
+	background-color: black;
+	position: relative;
+	margin: auto;
+	height: 100px;
+	width: 3px;
+}
+#clock
+{
+	position: relative;
+	margin: auto;
+	height: 220px;
+	width: 220px;
+	border: 5px solid black;
+	border-radius: 100%;
+}
+#clock-container
+{
+    position: relative;
+    top: 80px;
+}
+</style>
+</head>
+
+<body>
+
+    <div id="body container">
+        <div>
+            <p id="time"></p>
+            <p id="console">Things are happening?</p>
+        </div>
+        
+        <div id="time input">
+            <form> 
+                Hours:<br>
+                <input type="number" name = "00" id="hours"><br>
+                Minutes:<br>
+                <input type="number" name = "00" id="minutes"><br>
+            </form>
+        </div>
+        <div id="buttons">
+            <button>Cancel</button>
+            <button onClick=startTimer()>Start!</button>
+        </div>
+
+    <div id="clock-container">
+		<div id="clock">
+			<div id="second-hand">
+				<div id="second-hand-top-part"></div>
+			</div>
+		</div>
+	</div>
+	</div>
+    </div>
+
+
+<script type="text/javascript">
+    var timeElapsed = 0; 
+    function startTimer() {
+        countdown = setInterval(function() {
+
+            var hours_input = document.getElementById("hours").value;
+            var minutes_input = document.getElementById("minutes").value;
+
+            var time = hours_input * 60 * 60 * 1000 + minutes_input * 60 * 1000; 
+
+            timeElapsed = timeElapsed + 1000;
+
+            var distance = time - timeElapsed;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("time").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                alert("Countdown finished.");
+            }
+        }, 1000);
+    
+    }
+    function clearTimer() {
+        clearInterval(countdown);
+    }
+
+</script>
+
+</body>
+</html>
